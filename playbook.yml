@@ -1,0 +1,12 @@
+---
+- name: Echo "Hello World" on all servers
+  hosts: servers
+  gather_facts: no
+  tasks:
+    - name: Echo "Hello World"
+      command: echo "Hello World"
+      register: result
+
+    - name: Print the result
+      debug:
+        var: result.stdout
